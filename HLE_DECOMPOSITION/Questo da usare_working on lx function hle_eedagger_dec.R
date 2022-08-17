@@ -40,6 +40,10 @@ hle.fun = function (rates,age=seq(start.age,open.age,5), sex='f') {
   return(ex.health)
 }
 
+
+
+# sulla HLE lavoro sulla funzione di nopomuceno, su e-dagger lavoro sulla curva lx disability free come l'approccio di Iniaki, valutare cosa fare
+
 H_edagger.fun = function (rates,age=seq(start.age,open.age,5), sex='f') {
   lengthvec <- length(rates)
   mx <- rates[1:(lengthvec / 2)]
