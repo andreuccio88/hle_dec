@@ -124,3 +124,7 @@ All$mx <- All$Death/All$Expo
 str(All)
 
 All %>% filter(Year==2010)%>% ggplot(aes(Ageclass,log(mx),color=Gender))+geom_point()+facet_wrap(~CNT)
+
+save(All,file = "All.RData")
+
+
