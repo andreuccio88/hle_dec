@@ -1,0 +1,236 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\title{Healthy Lifespan Inequality (e-dagger)}
+\author{Andrea Nigri}
+\date{29/9/2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Healthy Lifespan Inequality (e-dagger)},
+  pdfauthor={Andrea Nigri},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\begin{document}
+\maketitle
+
+Attempt to calculate Healthy lifespan Inequality according to Permanyer
+et al.~2022: ``On the measurement of healthy lifespan inequality''
+
+My speculation about e-dagger (Vaupel, 1986) \[
+HLI:He^{\dagger}(x, t)=\frac{1}{S(x, t)} \int_{x}^{\infty} hle(a, t)\cdot d'(a, t)da
+\]
+
+where \(d'(a, t)\) are the number of deaths and individuals ceasing to
+be in good health between ages \(x\) and \(x+1\), (see, Permanyer
+paragraph ``Estimating health distributions'') multiplying the \(lx\)
+column of the life table (showing the number of survivors at age \(x\) )
+by $(1 − \pi_x)$ (the percent of population at age \(x\) not limited to
+carry out daily activities). The \(hle(a, t)\) is the healty life
+expectancy according to the Sullivan method.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hle.plus.edagg }\OtherTok{=} \ControlFlowTok{function}\NormalTok{ (rates,}\AttributeTok{age=}\FunctionTok{seq}\NormalTok{(start.age,open.age,}\DecValTok{5}\NormalTok{), }\AttributeTok{sex=}\StringTok{\textquotesingle{}f\textquotesingle{}}\NormalTok{) \{}
+\NormalTok{  lengthvec }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(rates)}
+\NormalTok{  mx }\OtherTok{\textless{}{-}}\NormalTok{ rates[}\DecValTok{1}\SpecialCharTok{:}\NormalTok{(lengthvec }\SpecialCharTok{/} \DecValTok{2}\NormalTok{)]}
+\NormalTok{  wx }\OtherTok{\textless{}{-}}\NormalTok{ rates[(lengthvec }\SpecialCharTok{/} \DecValTok{2} \SpecialCharTok{+} \DecValTok{1}\NormalTok{)}\SpecialCharTok{:}\NormalTok{lengthvec]}
+  
+\NormalTok{  n }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FunctionTok{diff}\NormalTok{(age), }\DecValTok{1}\NormalTok{)}
+\NormalTok{  ax }\OtherTok{\textless{}{-}} \FloatTok{0.5} \SpecialCharTok{*}\NormalTok{ n}
+  
+  \CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+  \ControlFlowTok{if}\NormalTok{ (age[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) \{}
+    \ControlFlowTok{if}\NormalTok{ (sex }\SpecialCharTok{==} \StringTok{\textquotesingle{}m\textquotesingle{}}\NormalTok{) \{}
+\NormalTok{      ax[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(mx[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textgreater{}=} \FloatTok{0.08307}\NormalTok{,}\FloatTok{0.29915}\NormalTok{,}
+                      \FunctionTok{ifelse}\NormalTok{(mx[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.023}\NormalTok{,}
+                             \FloatTok{0.14929} \SpecialCharTok{{-}} \FloatTok{1.99545} \SpecialCharTok{*}\NormalTok{ mx[}\DecValTok{1}\NormalTok{],}
+                             \FloatTok{0.02832} \SpecialCharTok{+} \FloatTok{3.26021} \SpecialCharTok{*}\NormalTok{ mx[}\DecValTok{1}\NormalTok{] ))\}}
+    \ControlFlowTok{if}\NormalTok{ (sex }\SpecialCharTok{==} \StringTok{\textquotesingle{}f\textquotesingle{}}\NormalTok{) \{}
+\NormalTok{      ax[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(mx[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textgreater{}=} \FloatTok{0.06891}\NormalTok{,}\FloatTok{0.31411}\NormalTok{,}
+                      \FunctionTok{ifelse}\NormalTok{(mx[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.01724}\NormalTok{,}
+                             \FloatTok{0.14903} \SpecialCharTok{{-}} \FloatTok{2.05527} \SpecialCharTok{*}\NormalTok{ mx[}\DecValTok{1}\NormalTok{],}
+                             \FloatTok{0.04667} \SpecialCharTok{+} \FloatTok{3.88089} \SpecialCharTok{*}\NormalTok{ mx[}\DecValTok{1}\NormalTok{] ))\} \}}
+  
+\NormalTok{  qx }\OtherTok{\textless{}{-}}\NormalTok{ (n }\SpecialCharTok{*}\NormalTok{ mx)}\SpecialCharTok{/}\NormalTok{(}\DecValTok{1} \SpecialCharTok{+}\NormalTok{ (n }\SpecialCharTok{{-}}\NormalTok{ ax) }\SpecialCharTok{*}\NormalTok{ mx)}
+\NormalTok{  qx }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(qx[}\SpecialCharTok{{-}}\NormalTok{(}\FunctionTok{length}\NormalTok{(qx))], }\DecValTok{1}\NormalTok{)}
+\NormalTok{  qx[qx }\SpecialCharTok{\textgreater{}} \DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{  px }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ qx}
+  \CommentTok{\# survivors at age x (lx)}
+\NormalTok{  lx }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{100000}\NormalTok{,}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,(}\FunctionTok{length}\NormalTok{(mx)}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)))}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{(}\FunctionTok{length}\NormalTok{(mx) }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{))\{}
+\NormalTok{    lx[i}\SpecialCharTok{+}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ lx[i]}\SpecialCharTok{*}\NormalTok{px[i] \}}
+  \CommentTok{\# deaths between ages x and x+n (dx)}
+\NormalTok{  dx }\OtherTok{\textless{}{-}}\NormalTok{ lx }\SpecialCharTok{*}\NormalTok{ qx}
+\NormalTok{  Lx }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FunctionTok{length}\NormalTok{(mx))}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(mx) }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)\{}
+\NormalTok{    Lx[i] }\OtherTok{\textless{}{-}}\NormalTok{ lx[i}\SpecialCharTok{+}\DecValTok{1}\NormalTok{]}\SpecialCharTok{*}\NormalTok{n[i] }\SpecialCharTok{+}\NormalTok{ ax[i]}\SpecialCharTok{*}\NormalTok{dx[i] \}}
+\NormalTok{  Lx[}\FunctionTok{length}\NormalTok{(mx)] }\OtherTok{\textless{}{-}}\NormalTok{ lx[}\FunctionTok{length}\NormalTok{(mx)]}\SpecialCharTok{/}\NormalTok{mx[}\FunctionTok{length}\NormalTok{(mx)]}
+\NormalTok{  Lx.health }\OtherTok{\textless{}{-}}\NormalTok{ Lx}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{wx)}
+\NormalTok{  ex.health }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(Lx.health)}\SpecialCharTok{/}\NormalTok{lx[}\DecValTok{1}\NormalTok{]}
+  
+  \DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+  \CommentTok{\# e{-}dagger: }
+  \CommentTok{\# see, Permanyer et al. Population Health Metrics (2022); }
+  \CommentTok{\# paragraph Estimating health distributions.}
+  \CommentTok{\# The author suggest {-} Multiplying the lx column of the life table,}
+  \CommentTok{\# showing the number of survivors at age x,}
+  \CommentTok{\# by 1 − wx (the percent of population at age x not limited }
+  \CommentTok{\# to carry out daily activities) }
+  \CommentTok{\# we obtain lx\textquotesingle{} : the   number of healthy survivors at age x . }
+  \CommentTok{\# This is the so{-}called  ‘morbidity curve’. }
+  \CommentTok{\# From the lx and lx\textquotesingle{} columns we derive the standard dx and dx\textquotesingle{} distributions}
+  \DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+  
+\NormalTok{  lx }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{100000}\NormalTok{,}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,(}\FunctionTok{length}\NormalTok{(mx)}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)))}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{(}\FunctionTok{length}\NormalTok{(mx) }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{))\{}
+\NormalTok{    lx[i}\SpecialCharTok{+}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ lx[i]}\SpecialCharTok{*}\NormalTok{px[i] \}}
+\NormalTok{  lx.health }\OtherTok{\textless{}{-}}\NormalTok{ lx}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{wx)}
+\NormalTok{  dx.health }\OtherTok{\textless{}{-}}\NormalTok{ lx.health }\SpecialCharTok{*}\NormalTok{ qx}
+  
+  \CommentTok{\# Healty e{-}dagger at age x}
+\NormalTok{  ed.health }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(dx.health}\SpecialCharTok{*}\NormalTok{ex.health)}\SpecialCharTok{/}\NormalTok{lx[}\DecValTok{1}\NormalTok{] }
+  \FunctionTok{return}\NormalTok{(}\FunctionTok{c}\NormalTok{(ex.health,ed.health))}
+\NormalTok{\}}
+
+
+\CommentTok{\# Data from example A. A. van Raalte and M. R. Nepomuceno}
+\CommentTok{\# Defining the variables for the start of the first interval, }
+\CommentTok{\# the start of the open{-}aged interval, and the years}
+
+\NormalTok{start.age }\OtherTok{=} \DecValTok{65}
+\NormalTok{open.age }\OtherTok{=} \DecValTok{85}
+\NormalTok{year1 }\OtherTok{=} \DecValTok{1970}\NormalTok{; year2 }\OtherTok{=} \DecValTok{1990}
+
+\NormalTok{mx1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.0204}\NormalTok{, }\FloatTok{0.0325}\NormalTok{, }\FloatTok{0.0533}\NormalTok{, }\FloatTok{0.0867}\NormalTok{,}
+         \FloatTok{0.1640}\NormalTok{)}
+\NormalTok{mx2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.0161}\NormalTok{, }\FloatTok{0.0246}\NormalTok{, }\FloatTok{0.0384}\NormalTok{, }\FloatTok{0.0646}\NormalTok{,}
+         \FloatTok{0.1410}\NormalTok{)}
+
+
+\NormalTok{wx1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.3000}\NormalTok{,}\FloatTok{0.3657}\NormalTok{,}\FloatTok{0.4552}\NormalTok{, }\FloatTok{0.5285}\NormalTok{,}
+         \FloatTok{0.6822}\NormalTok{)}
+\NormalTok{wx2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.3056}\NormalTok{,}\FloatTok{0.3831}\NormalTok{,}\FloatTok{0.4552}\NormalTok{, }\FloatTok{0.5424}\NormalTok{,}
+         \FloatTok{0.6441}\NormalTok{)}
+
+
+\CommentTok{\# Making a single vector of mx followed by wx.}
+\CommentTok{\# we need these as input for either horiuchi or stepwise\_replacement}
+\NormalTok{mxwx1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(mx1,wx1)}
+\NormalTok{mxwx2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(mx2,wx2)}
+
+\FunctionTok{hle.plus.edagg}\NormalTok{(}\AttributeTok{rates=}\NormalTok{mxwx1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9.691891 4.564243
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hle.plus.edagg}\NormalTok{(}\AttributeTok{rates=}\NormalTok{mxwx2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10.597281  4.832563
+\end{verbatim}
+
+\end{document}

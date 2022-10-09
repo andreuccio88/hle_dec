@@ -1,3 +1,70 @@
+
+# Approccio combinato fatto ad Aarhus
+hle.plus_edagg = function (rates,age=seq(start.age,open.age,5), sex='f') {
+  lengthvec <- length(rates)
+  mx <- rates[1:(lengthvec / 2)]
+  wx <- rates[(lengthvec / 2 + 1):lengthvec]
+  
+  n <- c(diff(age), 1)
+  ax <- 0.5 * n
+  
+  #---------------------------------------------------------
+  if (age[1] == 0) {
+    if (sex == 'm') {
+      ax[1] <- ifelse(mx[1] >= 0.08307,0.29915,
+                      ifelse(mx[1] < 0.023,
+                             0.14929 - 1.99545 * mx[1],
+                             0.02832 + 3.26021 * mx[1] ))}
+    if (sex == 'f') {
+      ax[1] <- ifelse(mx[1] >= 0.06891,0.31411,
+                      ifelse(mx[1] < 0.01724,
+                             0.14903 - 2.05527 * mx[1],
+                             0.04667 + 3.88089 * mx[1] ))} }
+  
+  qx <- (n * mx)/(1 + (n - ax) * mx)
+  qx <- c(qx[-(length(qx))], 1)
+  qx[qx > 1] <- 1
+  px <- 1 - qx
+  # survivors at age x (lx)
+  lx <- c(100000,rep(0,(length(mx)-1)))
+  for (i in 1:(length(mx) -1)){
+    lx[i+1] <- lx[i]*px[i] }
+  # deaths between ages x and x+n (dx)
+  dx <- lx * qx
+  Lx <- rep(0,length(mx))
+  for (i in 1:length(mx) -1){
+    Lx[i] <- lx[i+1]*n[i] + ax[i]*dx[i] }
+  Lx[length(mx)] <- lx[length(mx)]/mx[length(mx)]
+  # e0 <- sum(Lx)/lx[1] questa è life exp ed ottengo lo stesso valore 18.87073 della funzione usata nel paper con Josè
+  
+  Lx.health <- Lx*(1-wx)
+  ex.health <- sum(Lx.health)/lx[1]
+  
+  #####################
+  # e-dagger: 
+  # see, Permanyer et al. Population Health Metrics (2022); paragraph Estimating health distributions.
+  # The author suggest - Multiplying the lx column of the life table (showing the number of survivors at
+  # age x ) by 1 − wx (the percent of population at age x not limited to carry out daily activities) 
+  # we obtain lx' : the   number of healthy survivors at age x . This is the so-called  ‘morbidity curve’. 
+  # From the lx and lx' columns we derive the standard dx and dx' distributions
+  #####################
+  
+  lx <- c(100000,rep(0,(length(mx)-1)))
+  for (i in 1:(length(mx) -1)){
+    lx[i+1] <- lx[i]*px[i] }
+  lx.health <- lx*(1-wx)
+  dx.health <- lx.health * qx
+  
+  # Healty e-dagger at age x
+  ed.health <- sum(dx.health*ex.health)/lx[1] 
+  return(c(ex.health,ed.health))
+}
+
+
+################################
+
+
+
 hle.fun = function (rates,age=seq(start.age,open.age,5), sex='f') {
   lengthvec <- length(rates)
   mx <- rates[1:(lengthvec / 2)]
@@ -82,7 +149,7 @@ H_edagger.fun = function (rates,age=seq(start.age,open.age,5), sex='f') {
   Lx.health <- Lx
   
   ex.health <- sum(Lx.health)/lx.health[1]
-  ed.health <- sum(dx.health*ex.health)/lx.health[1]
+  ed.health <- sum(dx.health*ex.health)/lx[1] # check and consider if this might be /lx.health[1]
   
   return(ed.health)
 }
@@ -142,7 +209,7 @@ wx2 <- c(0.3056,0.3831,0.4552, 0.5424,
 mxwx1 <- c(mx1,wx1)
 mxwx2 <- c(mx2,wx2)
 
-
+hle.plus_edagg_fun_oct_22(rates=mxwx1,age =seq(start.age,open.age,5), sex='f')
 hle.fun(rates=mxwx1,age =seq(start.age,open.age,5), sex='f' )
 H_edagger.fun(rates=mxwx1,age =seq(start.age,open.age,5), sex='f' )
 
