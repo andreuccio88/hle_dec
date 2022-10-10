@@ -17,7 +17,7 @@ dis$CNT[dis$CNT=="Greece"] <- "GRC"
 dis$CNT[dis$CNT=="Ireland"] <- "IRL"
 dis$CNT[dis$CNT=="Italy"] <- "ITA"
 dis$CNT[dis$CNT=="Luxembourg"] <- "LUX"
-dis$CNT[dis$CNT=="Portuga"] <- "PRT"
+dis$CNT[dis$CNT=="Portugal"] <- "PRT"
 dis$CNT[dis$CNT=="Spain"] <- "ESP"
 dis$CNT[dis$CNT=="Sweden"] <- "SWE"
 dis$CNT[dis$CNT=="Germany"] <- "DEUTNP"
@@ -26,7 +26,7 @@ dis$CNT[dis$CNT=="United Kingdom"] <- "GBR_NP"
 
 
 tail(dis)
-dis$Gender[dis$Gender=="Woman"] <- "Female"
+dis$Gender[dis$Gender=="Women"] <- "Female"
 dis$Gender[dis$Gender=="Men"] <- "Male"
 head(dis)
 head(All)
@@ -34,6 +34,12 @@ head(All)
 str(All)
 str(dis)
 
+
+load("All.RData")
+
+unique(All$CNT)
 Final <- merge(All,dis)
+
+unique(Final$CNT)
 
 save(Final,file = "Final.RData")
