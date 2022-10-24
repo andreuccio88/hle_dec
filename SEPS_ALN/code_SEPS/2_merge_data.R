@@ -1,4 +1,6 @@
-dis<-read.csv("SILC.csv")
+#dis<-read.csv("ACT_LIMIT_SEVER.csv")
+
+dis<-read.csv("ACT_LIMIT_SEVER.csv")
 head(dis)
 
 
