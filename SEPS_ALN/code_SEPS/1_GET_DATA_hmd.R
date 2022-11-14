@@ -9,23 +9,23 @@ myusername <- "andrea.nigri@student.unisi.it"
 mypassword <- "Dottorato17"
 
 
-country <- c("AUT","BEL","DNK","FIN","FRACNP",
-             "DEUTNP","GRC","IRL","ITA","LUX",
-             "NLD", "PRT","ESP", "SWE", "GBR_NP")
+country <- c("AUT","BEL","DNK","EST","FIN","FRACNP","GRC",
+             "IRL","ITA","LUX","PRT","ESP","SWE","CZE",
+             "DEUTNP","HUN","LVA","LTU","NLD","POL","SVK",
+             "SVN","GBR_NP","BGR")
 
-# 
- 
- # Ex <- list()
- # for (i in 1: length(country)) {
- #   cnt <- country[i]
- #   Ex[[cnt]] <- readHMDweb(cnt, "Exposures_1x1",
- #                           myusername, mypassword)
- #   
- #   # let's print the progress
- #   paste(i,'out of',length(country)) 
- # }
 
-load("Ex.RData")
+  Ex <- list()
+  for (i in 1: length(country)) {
+    cnt <- country[i]
+    Ex[[cnt]] <- readHMDweb(cnt, "Exposures_1x1",
+                            myusername, mypassword)
+    
+    # let's print the progress
+    paste(i,'out of',length(country)) 
+  }
+
+#load("Ex.RData")
 
 Ex
 Ex <- do.call(rbind.data.frame, Ex)
@@ -68,17 +68,17 @@ tail(Ex2)
 # Dx
 #########################
 
-# Dx <- list()
-# for (i in 1: length(country)) {
-#   cnt <- country[i]
-#   Dx[[cnt]] <- readHMDweb(cnt, "Deaths_1x1",
-#                           myusername, mypassword)
-#   
-#   # let's print the progress
-#   paste(i,'out of',length(country)) 
-# }
+ Dx <- list()
+ for (i in 1: length(country)) {
+   cnt <- country[i]
+   Dx[[cnt]] <- readHMDweb(cnt, "Deaths_1x1",
+                           myusername, mypassword)
+   
+   # let's print the progress
+   paste(i,'out of',length(country)) 
+ }
 
-load("Dx.RData")
+#load("Dx.RData")
 Dx
 Dx <- do.call(rbind.data.frame, Dx)
 Dx$CNT <- rownames(Dx) 
