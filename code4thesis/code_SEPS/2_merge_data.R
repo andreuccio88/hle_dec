@@ -1,14 +1,7 @@
-#dis<-read.csv("ACT_LIMIT_SEVER.csv")
+# get disability data
 
 dis<-read.csv("Severely Limited_27.csv")
-head(dis)
-
-
 colnames(dis) <- c("CNT","Year","Gender","Ageclass","Prevalence")
-head(dis)
-
-unique(dis$CNT)
-unique(All$CNT)
 
 dis$CNT[dis$CNT=="Austria"] <- "AUT"
 dis$CNT[dis$CNT=="Belgium"] <- "BEL"
@@ -36,24 +29,15 @@ dis$CNT[dis$CNT=="United Kingdom"] <- "GBR_NP"
 dis$CNT[dis$CNT=="Bulgaria"] <- "BGR"
 
 
-
-
-
-tail(dis)
 dis$Gender[dis$Gender=="Women"] <- "Female"
 dis$Gender[dis$Gender=="Men"] <- "Male"
-head(dis)
-head(All)
 
 str(All)
 str(dis)
 
-
+# Load Mortality data
 load("All.RData")
 
-unique(All$CNT)
+# merge data and get final database
 Final <- merge(All,dis)
-
-unique(Final$CNT)
-
 save(Final,file = "Final.RData")

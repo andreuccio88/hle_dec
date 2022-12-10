@@ -1,12 +1,11 @@
-library(tidyverse) # version 1.0.0
-library(HMDHFDplus) # version 1.1.8
+library(tidyverse) 
+library(HMDHFDplus)
 
-#country <- getHMDcountries()
+country <- getHMDcountries()
 
 
-
-myusername <- "andrea.nigri@student.unisi.it"
-mypassword <- "Dottorato17"
+myusername <- "user"
+mypassword <- "pass"
 
 
 country <- c("AUT","BEL","DNK","EST","FIN","FRACNP","GRC",
