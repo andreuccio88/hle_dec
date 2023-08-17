@@ -110,7 +110,7 @@ HE_Decomp_Cont <- horiuchi(
 
 HE_cont <- matrix(HE_Decomp_Cont,nrow=(length(HE_Decomp_Cont)/2),ncol=2,
                   byrow=F)
-colnames(HE_cont) <- c("Mortality","Morbidity")
+colnames(HE_cont) <- c("Mortality","Disability")
 # 2) Creating a data frame with the matrices and adding
 # a column with the beginning of the age interval
 
@@ -161,7 +161,8 @@ rownames(HE_cont_res) <- NULL
 
 
 head(HE_cont_res)
-TOT <- ggplot(data=HE_cont_res, aes(x=as.factor(Age),
+unique(HE_cont_res$CNT)
+TOT <- ggplot(data=HE_cont_res %>% filter(CNT!="GBR_NP"), aes(x=as.factor(Age),
                              y=Contribution, fill =type))+
   geom_bar(stat = "identity", position = "stack")+coord_flip()+facet_wrap(~CNT)+
   #scale_fill_manual(values=c("grey30", "grey60"))+
@@ -173,15 +174,15 @@ TOT <- ggplot(data=HE_cont_res, aes(x=as.factor(Age),
   #annotate("text", x=5, y=0.2, 
   #        label=paste("HLE", year2,"=", round(Sullivan.fun(rates=mxwx2,sex = Gender),2)),fontface =1)+
   
-  labs(fill = "Effect", size=8)+theme_minimal()+
-  theme(axis.text.x = element_text(size=8),axis.text.y = element_text
-        (size=8),legend.text=element_text(size=8))+
-  theme(axis.title.x = element_text(size=8),axis.title = element_text
-        (size=8),legend.title=element_text(size=8))
+  labs(fill = "Effect", size=10)+theme_minimal()+
+  theme(axis.text.x = element_text(size=10),axis.text.y = element_text
+        (size=10),legend.text=element_text(size=10))+
+  theme(axis.title.x = element_text(size=10),axis.title = element_text
+        (size=10),legend.title=element_text(size=10))+ theme(text = element_text(size = 16))   
 
 
 
-TOT
+TOT 
 ggsave("hle65_male.pdf",TOT, width = 15, height = 10)
 
 hle_M <- HE_cont_res
